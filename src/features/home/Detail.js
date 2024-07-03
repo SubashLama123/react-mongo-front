@@ -6,34 +6,40 @@ import { imageUrl } from '../../constants/constants';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToCart } from '../carts/cartSlice';
+import ProductReview from './ProductReview';
 
 const Detail = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useGetProductByIdQuery(id);
 
+  const { user } = useSelector((state) => state.userSlice);
 
   if (isLoading) {
     return <h1>Loading....</h1>
   }
   const product = data?.data;
+
   return (
-    <div className='grid grid-cols-3 p-4 items-center gap-10'>
+    <>
+      <div className='grid grid-cols-3 p-4 items-center gap-10'>
 
-      <div className="image">
-        <img className='w-full' src={`${imageUrl}${product.product_image}`} alt="" />
+        <div className="image">
+          <img className='w-full' src={`${imageUrl}${product.product_image}`} alt="" />
+        </div>
+        <div className="info space-y-3">
+          <h1>{product.product_name}</h1>
+          <p>{product.product_detail}</p>
+          <p>Rs.{product.product_price}</p>
+        </div>
+
+        {product && <AddCart product={product} />}
+
+
+
+
       </div>
-      <div className="info space-y-3">
-        <h1>{product.product_name}</h1>
-        <p>{product.product_detail}</p>
-        <p>Rs.{product.product_price}</p>
-      </div>
-
-      {product && <AddCart product={product} />}
-
-
-
-
-    </div>
+      <ProductReview user={user} id={product._id} reviews={product.reviews} />
+    </>
   )
 }
 

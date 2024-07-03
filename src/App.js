@@ -16,6 +16,7 @@ import CartPage from './features/carts/CartPage';
 import UserProfile from './features/user/UserProfile';
 import AdminRoutes from './ui/AdminRoutes';
 import UserSecRoutes from './ui/UserSecRoutes';
+import OrderDetail from './features/orders/OrderDetail';
 
 
 
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
         children: [
           { path: 'carts', element: <CartPage /> },
           { path: 'userProfile', element: <UserProfile /> },
+          { path: 'orders/:id', element: <OrderDetail /> },
         ]
       },
 

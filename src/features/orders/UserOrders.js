@@ -1,12 +1,14 @@
 import React from 'react'
 import { useGetOrderByUserQuery, useGetOrdersQuery } from './orderApi';
 import { Button, Card, Typography } from "@material-tailwind/react";
+import { useNavigate } from 'react-router-dom/dist';
 
 
 const TABLE_HEAD = ["ProductId", "Total", "CreatedAt", ''];
 
 
 const UserOrders = ({ user }) => {
+  const nav = useNavigate();
   const { isLoading, error, data } = useGetOrdersQuery(user);
   if (isLoading) {
     return <h1>Loading....</h1>
@@ -75,7 +77,7 @@ const UserOrders = ({ user }) => {
                       className="font-normal"
                     >
                       <Button
-                        //onClick={() => nav(`/order/${_id}`)} 
+                        onClick={() => nav(`/orders/${_id}`)}
                         size='sm' color='green'>Detail</Button>
                     </Typography>
                   </td>
