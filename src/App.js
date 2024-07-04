@@ -17,6 +17,7 @@ import UserProfile from './features/user/UserProfile';
 import AdminRoutes from './ui/AdminRoutes';
 import UserSecRoutes from './ui/UserSecRoutes';
 import OrderDetail from './features/orders/OrderDetail';
+import SearchPage from './features/home/SearchPage';
 
 
 
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
           { path: 'orders/:id', element: <OrderDetail /> },
         ]
       },
-
+      { path: 'search-page/:query', element: <SearchPage /> },
 
 
 

@@ -14,6 +14,17 @@ export const productApi = createApi({
     getProducts: builder.query({
       query: (query) => ({
         url: '/',
+        method: 'GET',
+      }),
+      providesTags: ['Product']
+    }),
+
+    searchProducts: builder.query({
+      query: (query) => ({
+        url: '/',
+        params: {
+          search: query
+        },
         method: 'GET'
       }),
       providesTags: ['Product']
@@ -92,4 +103,4 @@ export const productApi = createApi({
 });
 
 
-export const { useGetProductsQuery, useGetProductByIdQuery, useGetTopProductsQuery, useAddProductMutation, useUpdateProductMutation, useRemoveProductMutation, useReviewAddMutation } = productApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useGetTopProductsQuery, useAddProductMutation, useUpdateProductMutation, useRemoveProductMutation, useReviewAddMutation, useSearchProductsQuery } = productApi;
