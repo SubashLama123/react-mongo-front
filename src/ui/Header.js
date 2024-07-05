@@ -167,8 +167,9 @@ const Header = () => {
     initialValues: {
       query: ''
     },
-    onSubmit: (val) => {
+    onSubmit: (val, { resetForm }) => {
       nav(`/search-page/${val.query}`);
+      resetForm();
     }
   });
   React.useEffect(() => {
