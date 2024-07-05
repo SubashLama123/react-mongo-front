@@ -4,6 +4,7 @@ import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from '@mat
 import Cara from './Cara';
 import { useNavigate } from 'react-router';
 import { imageUrl } from '../../constants/constants';
+import Spinner from '../../ui/Spinner';
 
 const Home = () => {
   const { data, isLoading, error } = useGetProductsQuery();
@@ -11,7 +12,7 @@ const Home = () => {
   const nav = useNavigate();
 
   if (isLoading) {
-    return <h1>Loading....</h1>;
+    return <Spinner />;
   }
 
 
