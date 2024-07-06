@@ -5,7 +5,11 @@ import { userUrl } from '../../constants/constants';
 export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: userUrl
+    baseUrl: userUrl,
+    credentials: 'include',
+    headers: {
+      'Accept': 'application/json'
+    }
   }),
 
 

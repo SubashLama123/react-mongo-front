@@ -26,10 +26,10 @@ const Login = () => {
     onSubmit: async (val) => {
       try {
         const response = await loginUser(val).unwrap();
-        console.log(response);
-        dispatch(setUser(response));
-        toast.success('successfully login');
-        nav(-1);
+        // console.log(response);
+        // dispatch(setUser(response));
+        // toast.success('successfully login');
+        // nav(-1);
       } catch (err) {
         toast.error(err.data?.message);
       }
