@@ -6,7 +6,6 @@ export const userApi = createApi({
   reducerPath: 'userApi',
   baseQuery: fetchBaseQuery({
     baseUrl: userUrl,
-    credentials: 'include',
     headers: {
       'Accept': 'application/json'
     }

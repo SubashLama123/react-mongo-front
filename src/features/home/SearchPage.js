@@ -1,13 +1,13 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { useSearchProductsQuery } from '../shared/productApi';
+import { useGetProductsQuery } from '../shared/productApi';
 import { imageUrl } from '../../constants/constants';
 import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from '@material-tailwind/react';
 
 const SearchPage = () => {
   const { query } = useParams();
   const nav = useNavigate();
-  const { data, isLoading } = useSearchProductsQuery(query);
+  const { data, isLoading } = useGetProductsQuery({ search: query });
   if (isLoading) {
     return <h1>Loading.....</h1>
   }
