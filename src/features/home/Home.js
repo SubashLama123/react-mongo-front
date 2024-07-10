@@ -35,7 +35,7 @@ const Home = () => {
             <CardHeader color="blue-gray" className="relative ">
               <img
                 className='w-full'
-                src={`${imageUrl}${product_image}`}
+                src={`${product_image}`}
                 alt="card-image"
               />
             </CardHeader>
